@@ -38,8 +38,8 @@ def create_python_environment(source_dir, args):
     :return: shebang with path to the python executable
     """
     interp = args.python_interp
-    pyver = subprocess.check_output(interp + " -c \"import sys; print ','.join(map(str, list(sys.version_info["
-                                    "0:3])))\"", shell=True).strip().split(",")
+    pyver = subprocess.check_output(interp + " -c \"import sys; print(','.join(map(str, list(sys.version_info[0:3]))))\"",
+        shell=True).strip().split(",")
     pyver = tuple(map(int, pyver))
 
     if pyver < (2, 7, 3):
